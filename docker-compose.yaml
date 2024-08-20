@@ -1,0 +1,19 @@
+services:
+  whisper_service:
+    image: whisper-image
+
+    container_name: whisper-container
+
+    volumes:
+      - ./:/work
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    working_dir: /work
+
+    tty: true
