@@ -26,7 +26,7 @@ result = transcribe(
     language="Japanese",
     verbose=False,
     temperature=0.0,
-    condition_on_previous_text=True,
+    condition_on_previous_text=False,
     word_timestamps=True,
 )
 
