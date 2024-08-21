@@ -34,7 +34,7 @@ for segment in result["segments"]:
     segment_text = segment["text"]
 
     # Format as [hh:mm:ss.sss --> hh:mm:ss.sss] Text
-    result_text += f"[{segment_start:0>7.3f} --> {segment_end:0>7.3f}] {segment_text}\n"
+    result_text += f"[{segment_start:0>8.3f} --> {segment_end:0>8.3f}] {segment_text}\n"
 
 if len(result_text) > 0:
     result_text = result_text[:-1]
