@@ -9,7 +9,7 @@ Run Whisper on Docker
 download from here  
 https://pro-video.jp/voice/announce/
 
-copy mp3 to audio dir
+rename test.mp3 and copy to audio dir
 
 ### run commands
 
