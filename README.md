@@ -24,7 +24,11 @@ docker compose up -d
 docker exec -it whisper-container /bin/bash
 
 # run test
+# (cli)
 whisper ./audio/test.mp3 --language Japanese --model large-v3 --model_dir ./model --output_dir ./result --device cuda
+
+# (script)
+python3 sample.py
 ```
 
 ### result tree
@@ -37,10 +41,11 @@ whisper ./audio/test.mp3 --language Japanese --model large-v3 --model_dir ./mode
 ├── docker-compose.yaml
 ├── model
 │   └── large-v3.pt
-└── result
-    ├── test.json
-    ├── test.srt
-    ├── test.tsv
-    ├── test.txt
-    └── test.vtt
+├── result
+│   ├── test.json
+│   ├── test.srt
+│   ├── test.tsv
+│   ├── test.txt
+│   └── test.vtt
+└── sample.py
 ```
