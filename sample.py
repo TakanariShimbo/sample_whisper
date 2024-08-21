@@ -20,17 +20,27 @@ result = transcribe(
     model,
     audio_path,
     language="Japanese",
-    verbose=True,
+    verbose=False,
     temperature=0.0,
     condition_on_previous_text=True,
     word_timestamps=True,
 )
 print()
 
-# print("Transcription Text:", result["text"])
-# print("Language Detected:", result["language"])
-# print("Segments:", result["segments"])
+result_text = ""
+for segment in result["segments"]:
+    segment_start = segment["start"]
+    segment_end = segment["end"]
+    segment_text = segment["text"]
 
+    # Format as [hh:mm:ss.sss --> hh:mm:ss.sss] Text
+    result_text += f"[{segment_start:0>7.3f} --> {segment_end:0>7.3f}] {segment_text}\n"
+
+if len(result_text) > 0:
+    result_text = result_text[:-1]
+
+print(result_text)
+print()
 
 # output result
 print("Output result...")
