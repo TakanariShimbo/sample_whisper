@@ -42,6 +42,7 @@ if len(result_text) > 0:
 print(result_text)
 print()
 
+
 # output result
 print("Output result...")
 output_format = "all"  # "txt", "vtt", "srt", "tsv", "json", or "all"
