@@ -1,15 +1,13 @@
 ## About
 
-Run Whisper on Docker
+Run Whisper(https://github.com/openai/whisper) on Docker  
 
 ## Usage
 
 ### download mp3
 
-download from here  
-https://pro-video.jp/voice/announce/
-
-rename test.mp3 and copy to audio dir
+You can download sample audio from here (https://pro-video.jp/voice/announce/)  
+After that, please rename test.mp3 and copy to audio dir
 
 ### run commands
 
