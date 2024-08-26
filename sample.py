@@ -9,6 +9,7 @@ model_dir = "./model"
 audio_path = "./audio/test.mp3"
 output_dir = "./result"
 
+
 # load model
 print("Load model...")
 start_load_model = time.time()
@@ -46,6 +47,7 @@ print(f"{result_text}\n")
 
 end_transcribe = time.time()
 print(f"Transcription completed in {end_transcribe - start_transcribe:.2f} seconds.\n")
+
 
 # output result
 print("Output result...")
