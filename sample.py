@@ -1,4 +1,3 @@
-import io
 import time
 import os
 import warnings
@@ -29,15 +28,6 @@ start_load_model = time.time()
 model = load_model("large-v3", device="cuda", download_root=model_dir)
 end_load_model = time.time()
 print(f"Model loaded in {end_load_model - start_load_model:.2f} seconds.\n")
-
-
-# load audio
-print("Load audio...")
-start_load_audio = time.time()
-with open(audio_path, 'rb') as audio_file:
-    audio_buffer = io.BytesIO(audio_file.read())
-end_load_audio = time.time()
-print(f"Audio loaded in {end_load_audio - start_load_audio:.2f} seconds.\n")
 
 
 # run transcribe
