@@ -6,10 +6,11 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 from whisper import load_model, transcribe
 
 
-# set path
+# set params
 model_dir = "./model"
 audio_dir = "./audio"
 output_dir = "./transcription"
+language = "Japanese"
 
 
 # find audio file
@@ -36,7 +37,7 @@ start_transcribe = time.time()
 result = transcribe(
     model,
     audio_path,
-    language="Japanese",
+    language=language,
     verbose=False,
     temperature=0.0,
     condition_on_previous_text=False,
