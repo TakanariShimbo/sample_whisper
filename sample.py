@@ -1,13 +1,25 @@
 import time
+import os
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 from whisper import load_model, transcribe
-from whisper.utils import get_writer
 
 
 # set path
 model_dir = "./model"
-audio_path = "./audio/test.mp3"
-output_dir = "./result"
+audio_dir = "./audio"
+output_dir = "./transcription"
+
+
+# find audio file
+audio_files = [
+    f for f in os.listdir(audio_dir)
+    if os.path.isfile(os.path.join(audio_dir, f)) and f.startswith("input.")
+]
+if not audio_files:
+    raise FileNotFoundError("Audio file not found.")
+audio_path = os.path.join(audio_dir, audio_files[0])
 
 
 # load model
@@ -49,11 +61,14 @@ end_transcribe = time.time()
 print(f"Transcription completed in {end_transcribe - start_transcribe:.2f} seconds.\n")
 
 
-# output result
-print("Output result...")
+# output transcription
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
+
+print("Output transcription...")
 start_output = time.time()
-output_format = "all"  # "txt", "vtt", "srt", "tsv", "json", or "all"
-writer = get_writer(output_format, output_dir)
-writer(result, audio_path)
+
+with open(f"{output_dir}/output.txt", "w", encoding="utf-8") as f:
+    f.write(result_text)
 end_output = time.time()
 print(f"Output generated in {end_output - start_output:.2f} seconds.\n")
